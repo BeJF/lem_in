@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 17:56:19 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/16 15:30:17 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/27 19:07:55 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	block_path(t_struct *data, t_path *path_list)
 		{
 			line = path[path_length];
 			if (line != data->end_nb && line != data->start_nb)
-				matrix[line][0] = 2;
+				matrix[line][0] = 2; //-1
 		}
 		path_list = path_list->next;
 	}

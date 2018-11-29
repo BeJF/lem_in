@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:06:38 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/16 13:35:28 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/27 12:01:12 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ typedef struct s_struct
 
 	char	*start_name;
 	int		start_nb;
-
 	char	*end_name;
 	int		end_nb;
+	
 	int		found;
-
 }				t_struct;
 
 typedef	struct	s_list

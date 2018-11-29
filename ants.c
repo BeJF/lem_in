@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/15 17:21:17 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/16 18:42:14 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/10/16 20:10:45 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,27 @@ t_ants *new_ant(int name, int *path, int length, t_ants *lst_ants)
 	return (lst_ants);
 }
 
-t_ants	*clean_list(t_ants *lst_ants)
+void	clean_list(t_ants *lst_ants)
+{
+	t_ants *temp;
+	t_ants *delete;
+	t_ants *previous;
+
+	temp = lst_ants;
+	previous = NULL;
+	while (temp)
+	{
+		next = temp->next;
+		if (temp->length == 0)
+		{
+			free (temp);
+		}
+		previous = temp;
+		temp = next;
+	}
+}
+
+/*t_ants	*clean_list(t_ants *lst_ants)
 {	
 	t_ants *tmp;
 	t_ants *delete;
@@ -57,8 +77,15 @@ t_ants	*clean_list(t_ants *lst_ants)
 		}
 		tmp = tmp->next;
 	}
+	while (tmp != NULL)
+	{
+		delete = tmp;
+		if (tmp->length == 0)
+
+		tmp = tmp->next;
+	}
 	return (lst_ants);
-}
+}*/
 
 t_ants *put_ants_in_list(t_struct *data, t_path *path_list, t_ants *lst_ants)
 {
@@ -91,7 +118,8 @@ void	print_ways(t_ants *lst_ants, t_struct *data, t_path *path_list)
 
 	if (data->nb_ants != 0)
 		lst_ants = put_ants_in_list(data, path_list, lst_ants);
-	lst_ants = clean_list(lst_ants);
+	clean_list(&lst_ants);
+	//lst_ants = clean_list(lst_ants);
 	if (lst_ants == NULL)
 		return ;
 	tmp = lst_ants;

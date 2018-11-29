@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 15:49:19 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/10 18:08:30 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/27 17:50:38 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int name_to_nb(char *room_name, t_list *rooms, t_struct *data)
 	{
 		if (strcmp(rooms->room_name, room_name) == 0)
 			return (rooms->room_nb);
-	  	rooms=rooms->next;
+	  	rooms = rooms->next;
 	}
 	if (strcmp(data->start_name, room_name) == 0)
 		return (data->start_nb);
 	if (strcmp(data->end_name, room_name) == 0)
 		return (data->end_nb);
-	return (-1); //qd erreur
+	return (-1); //qd erreur genre room pas trouvee
 }
 
 int	parser_tunnels(t_struct *data, t_list *rooms, char *line)

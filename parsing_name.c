@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 01:22:52 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/10 15:10:47 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/27 14:28:19 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int data_4_endstart(int index, int start, int end, t_struct *data)
 		data->end_name = name;
 		data->end_nb = index;
 	}
+	free(line);
 	return (0);
 }
 
@@ -66,12 +67,14 @@ int parser_roomname(int index, t_struct *data, t_list **rooms, char *line)
 	char    *name;
 	int     i;
 	i = 0;
-	while (line[0] == '#' && line[1] != '#') //pour les commentaires
+	//while (line[0] == '#' && line[1] != '#') //pour les commentaires
+	if (line[0] == '#' && line[1] != '#')
 	{
 		free(line);
-		get_next_line(0, &line);
+		return (1);
+		//get_next_line(0, &line); //peut avoir deux gnl d'affiles
 	}
-	if (ft_strcmp(line, "##start") == 0)
+	else if (ft_strcmp(line, "##start") == 0)
 	{
 		free (line);
 		if (data_4_endstart(index, 1, 0, data) == -1)

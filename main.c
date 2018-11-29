@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 19:43:14 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/16 17:56:03 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/27 12:04:51 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,14 @@ int main()
 	int			index;
 	
 	data = (t_struct*)malloc(sizeof(t_struct));
-	data->nb_rooms = 2;
+	data->nb_rooms = 2; //hypothetique
 	rooms = NULL;
 	line = NULL;
 	index = 0;
 	
-	//stocke nb fourmis	
+	//stocke nb fourmis
+	//first check si pas 0 fourmis, et si premier ligne est bien ca
+	printf("test\n");
 	get_next_line(0, &line);
 	data->nb_ants = ft_atoi(line);
 	free (line);
@@ -59,6 +61,7 @@ int main()
 	//stocke les noms des rooms
 	while (ft_strchr(line, ' ') != 0 || ft_strchr(line, '#') != 0)
 	{
+		printf("1");
 		parser_roomname(index, data, &rooms, line); //gestion d erreur, free line etc
 		index++;
 		get_next_line(0, &line);
@@ -68,6 +71,7 @@ int main()
 	init_matrix(data);
 	while (ft_strchr(line, '-') != 0 || ft_strchr(line, '#') != 0)
 	{
+		printf("2");
 		parser_tunnels(data, rooms, line);
 		get_next_line(0, &line);	
 	}
