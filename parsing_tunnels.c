@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 15:49:19 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/27 17:50:38 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/03 13:50:27 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ int	parser_tunnels(t_struct *data, t_list *rooms, char *line)
 
 	i = 0;
 	z = 0;
-	while (line[0] == '#' && line[1] != '#')
+	//while (line[0] == '#' && line[1] != '#')
+	if (line[0] == '#' && line[1] != '#')
 	{
 		free (line);
-		get_next_line(0, &line);
+		return (1);
+		//get_next_line(0, &line);
 	}
 	while (line[i] != '-')
 		i++;

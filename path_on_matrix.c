@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/15 16:15:02 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/16 15:15:20 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/03 13:53:44 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,17 +70,17 @@ void	read_matrix(t_struct *data, int previous, int origin, t_path **path_list)
 	printf("path length = %d\n", length);
 	path = (int*)malloc(sizeof(int) * length);
 	path[i++] = data->end_nb;
-	printf("in tab = %d\n", path[0]);
+	//printf("in tab = %d\n", path[0]);
 	while(matrix[data->end_nb][origin] <= 1)
 	{
 		origin++;
 	}
 	path[i++] = origin;
-	printf("in tab = %d\n", origin);
+	//printf("in tab = %d\n", origin);
 	previous = origin;
 	origin = matrix[origin][data->end_nb] - 10;
 	path[i++] = origin;
-	printf("in tab = %d\n", origin);
+	//printf("in tab = %d\n", origin);
 	while (1)/*(origin != data->start_nb)*/
 	{
 		temp = origin;
@@ -88,7 +88,7 @@ void	read_matrix(t_struct *data, int previous, int origin, t_path **path_list)
 		if (origin == data->start_nb)
 			break ;
 		path[i++] = origin;
-		printf("in tab = %d\n", origin);
+		//printf("in tab = %d\n", origin);
 		previous = temp;
 	}
 	put_path(path_list, path, length);
